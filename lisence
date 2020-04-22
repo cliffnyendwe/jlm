@@ -1,0 +1,54 @@
+<ul class="ruby-menu">
+    <li class="ruby-menu-mega"><a href="#">Useful links</a>
+        <div class="ruby-grid ruby-grid-lined">
+            <div class="ruby-row">
+                <div class="ruby-col-2">
+                    <h3 class="ruby-list-heading">Service Department</h3>
+                    <ul>
+                        <li><a href="{% url 'ushering' %}">Ushering</a></li>
+                        <li><a href="{% url 'living_voice'%}">Living voices Int</a></li>
+                        <li><a href="{% url 'transport' %}">Transport</a></li>
+                        <li><a href="{% url 'media' %}">Media</a></li>
+                        <li><a href="#"></a></li>
+                    </ul>
+                </div>
+                <div class="ruby-col-2 hidden-md">
+                    <h3 class="ruby-list-heading">Adminstration</h3>
+                    <ul>
+                        <li><a href="#">Pastors</a></li>
+                        <li><a href="#">Deacons</a>
+                        </li>
+                        <li><a href="#">Board of Trustees</a></li>
+                    </ul>
+                </div>
+                <div class="ruby-col-3 ruby-col-4-md">
+                    <h3 class="ruby-list-heading">List with Images + Desc</h3>
+                    <ul class="ruby-list-with-images" class="nav-item">
+                      <li class="nav-item"><a class="nav-item" href="#">Programe 3</a></li>
+                      <li><a href="#">Programe 4</a>
+                      </li>
+                    </ul>
+                </div>
+                <div class="ruby-col-5">
+                    <h3 class="ruby-list-heading">Other Departments</h3>
+                    <div class="ruby-row">
+                        <div class="ruby-col-4 ruby-col-6-md">
+                            <ul>
+                              <li><a href="#">Extreme Grace Foundation</a></li>
+                              <li><a href="#">Evangelism</a></li>
+                            </ul>
+                        </div>
+                        <div class="ruby-col-4 ruby-col-6-md" style="padding-left:10px">
+                            <ul>
+                                <li><a href="#">Up coming event</a></li>
+                                <li><a href="#">Branches</a></li>
+                                <li><a href="#">Sunday School</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </li>
+</ul>
+</ul>

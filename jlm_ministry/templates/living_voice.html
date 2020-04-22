@@ -1,0 +1,82 @@
+{% extends 'base.html'%}
+{% block content %}
+{% load staticfiles %}
+{% block title%}<title>living voices int</title>{% endblock title%}
+<link rel="stylesheet" href="{% static 'css/ushering.css'%}">
+{% include 'navbar.html'%}
+
+<!--Carousel Wrapper-->
+<div id="video-carousel-example2" class="carousel slide carousel-fade" data-ride="carousel">
+  <!--Indicators-->
+  <ol class="carousel-indicators">
+    <li data-target="#video-carousel-example2" data-slide-to="0" class="active"></li>
+    <li data-target="#video-carousel-example2" data-slide-to="1"></li>
+  </ol>
+  <!--/.Indicators-->
+  <!--Slides-->
+  <div class="carousel-inner" role="listbox">
+    <!-- First slide -->
+    <div class="carousel-item active">
+      <!--Mask color-->
+      <div class="view">
+        <!--Video source-->
+        <video class="video-fluid" autoplay loop muted>
+          <source src="https://mdbootstrap.com/img/video/Lines.mp4" type="video/mp4" />
+        </video>
+        <div class="mask rgba-indigo-light"></div>
+      </div>
+
+      <!--Caption-->
+      <div class="carousel-caption">
+        <div class="animated fadeInDown">
+          <h1 class="font-weight-bold text-uppercase">Jesus lives ministry</h1>
+          <p class="font-weight-bold text-uppercase py-4">Affecting the world for Christ</p>
+        </div>
+      </div>
+      <!--Caption-->
+    </div>
+    <!-- /.First slide -->
+  </div>
+  <!--/.Slides-->
+</div>
+<!--Carousel Wrapper-->
+
+<div class="container-fluid">
+  <br>
+  <h3>WORSHIP DEPARTMENT</h3>
+  <h4>Duties and responsibilities</h4>
+  <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore
+    magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+    consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
+    Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+  <h4>Living voices International Team</h4>
+  {% if worshippers %}
+  <div class="row">
+    {% for worshipper in worshippers%}
+    <div class="col-12 col-sm-6 col-lg-2">
+
+      <div class="card">
+        <!-- Background color -->
+        <div class="card-up indigo lighten-1">
+          <div class="view overlay zoom">
+            <div class="avatar mx-auto">
+              <img src="{{ worshipper.image.url}}" class="rounded-circle z-depth-2" style="height:280px; width:100%" alt=""
+                100x100"">
+            </div>
+          </div>
+        </div>
+        <div class="card-body">
+          <!-- Name -->
+          <h4 class="card-title">
+            <h6 class="view overlay zoom">{{worshipper.level}} {{worshipper.full_name}}</h6>
+            <hr />
+            <h6 class="view overlay zoom">{{worshipper.branch}}</h6>
+        </div>
+      </div>
+    </div>
+    {% endfor %}
+  </div>
+  {% endif %}
+</div>
+
+{% endblock %}
