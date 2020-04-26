@@ -1,5 +1,6 @@
 from django.db import models
 from embed_video.fields import EmbedVideoField
+from django.utils import timezone
 
 class Pastors(models.Model):
     image = models.ImageField(upload_to='media/photos/', null=True,
@@ -209,4 +210,76 @@ class Deacon(models.Model):
         self.save()
 
     def save_branch(self):
+        self.save()
+
+
+# model for board of trustee Department
+class Trustee(models.Model):
+    image = models.ImageField(upload_to='media/photos/')
+    full_name = models.CharField(max_length=250)
+    LEVEL = (
+            ('Chairperson', 'Chairperson'),
+            ('Member', 'Member'),
+    )
+    level = models.CharField(max_length=100, choices=LEVEL, default='level')
+    BRANCH = (
+            ('Main branch', 'Main branch'),
+            ('Kitengela branch', 'Kitengela branch'),
+            ('Kibera branch', 'Kibera branch'),
+    )
+    branch = models.CharField(max_length=100, choices=BRANCH, default='branch')
+
+    def __str__(self):
+        return self.full_name
+
+    def save_full_name(self):
+        self.save()
+
+    def save_image(self):
+        self.save()
+
+    def save_branch(self):
+        self.save()
+
+# model for board of trustee Department
+class Extreme(models.Model):
+    image = models.ImageField(upload_to='media/photos/')
+    full_name = models.CharField(max_length=250)
+
+    def __str__(self):
+        return self.full_name
+
+    def save_full_name(self):
+        self.save()
+
+    def save_image(self):
+        self.save()
+
+# model for board of trustee Department
+class Event(models.Model):
+    image = models.ImageField(upload_to='media/photos/',default='image')
+    title = models.CharField(max_length=250)
+    date_created = models.DateTimeField( default=timezone.now)
+
+    def __str__(self):
+        return self.title
+
+    def save_title(self):
+        self.save()
+
+    def save_description(self):
+        self.save()
+
+# model for testimonies
+class Testimony(models.Model):
+    image = models.ImageField(upload_to='media/photos/')
+    full_name = models.CharField(max_length=250)
+    testimony = models.CharField(max_length=500)
+    def __str__(self):
+        return self.full_name
+
+    def save_full_name(self):
+        self.save()
+
+    def save_image(self):
         self.save()

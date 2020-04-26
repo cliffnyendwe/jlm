@@ -11,6 +11,7 @@
     <link href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.4.1/css/bootstrap.min.css" rel="stylesheet">
 <!-- Material Design Bootstrap -->
     <link href="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.15.0/css/mdb.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
     <!-- JQuery -->
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 <!-- Bootstrap tooltips -->
@@ -64,7 +65,7 @@
         </div>
 
       <!-- Footer Links -->
-      <div class="container text-center text-md-left mt-5">
+      <div class="container-fluid text-center text-md-left mt-5">
         <!-- Grid row -->
         <div class="row mt-3">
           <!-- Grid column -->
@@ -81,13 +82,13 @@
             <h6 class="text-uppercase font-weight-bold">Useful links</h6>
             <hr class="deep-purple accent-2 mb-4 mt-0 d-inline-block mx-auto" style="width: 60px;">
             <p>
-              <a href="#!">Boa Base School</a>
+              <a href="{% url 'pastors' %}">Pastors Department</a>
             </p>
             <p>
-              <a href="#!">Extreme Grace Foundation</a>
+              <a href="{% url 'deacon' %}">Deacons Department</a>
             </p>
             <p>
-              <a href="#!">Programes</a>
+              <a href="{% url 'board_of_trustee' %}">Board of Trustees</a></li>
             </p>
           </div>
 
@@ -96,16 +97,34 @@
             <h6 class="text-uppercase font-weight-bold">Useful links</h6>
             <hr class="deep-purple accent-2 mb-4 mt-0 d-inline-block mx-auto" style="width: 60px;">
             <p>
-              <a href="#!">Branches</a>
+              <a href="{% url 'boa_base' %}">Boa Base School</a>
             </p>
             <p>
-              <a href="#!">Department</a>
+              <a href="{% url 'extreme_grace' %}">Extreme Grace Foundation</a>
             </p>
             <p>
-              <a href="#!">Help</a>
+              <a href="{% url 'event' %}">Up coming event</a></li>
             </p>
           </div>
           <!-- Grid column -->
+          <div class="col-md-3 col-lg-2 col-xl-2 mx-auto mb-4">
+            <!-- Links -->
+            <h6 class="text-uppercase font-weight-bold">Useful links</h6>
+            <hr class="deep-purple accent-2 mb-4 mt-0 d-inline-block mx-auto" style="width: 60px;">
+            <p>
+              <a href="{% url 'ushering' %}">Ushering Department</a>
+            </p>
+            <p>
+              <a href="{% url 'living_voice'%}">Living voices Int</a>
+            </p>
+            <p>
+              <a href="{% url 'transport' %}">Transport Department</a>
+            <p>
+              <a <a href="{% url 'media' %}">Media Department</a>
+            </p>
+            </li>
+            </p>
+          </div>
           <!-- Grid column -->
           <div class="col-md-4 col-lg-3 col-xl-3 mx-auto mb-md-0 mb-4">
             <!-- Links -->
@@ -127,7 +146,7 @@
       <!-- Footer Links -->
       <!-- Copyright -->
       <div class="footer-copyright text-center py-3">© 2020 Copyright:
-        <a href="#">Jesus lives ministries</a>
+        <a href="{% url 'home' %}">Jesus lives ministries</a>
       </div>
       </div>
       <!-- Copyright -->

@@ -1,39 +1,37 @@
 {% extends 'base.html'%}
-{% block title %}<title>jesus lives ministry</title>{% endblock title %}
-
 {% block content %}
 {% load staticfiles %}
+{% load crispy_forms_tags %}
+{% block title %}<title>jesus lives ministry</title>{% endblock title %}
+<link rel="stylesheet" href="{% static 'css/home.css'%}">
 {% include 'navbar.html'%}
 <!--Carousel Wrapper-->
-  <!--Slides-->
-  <div class="carousel-inner" role="listbox">
-    <!-- First slide -->
-    <div class="carousel-item active">
-      <!--Mask color-->
-      <div class="view">
-        <!--Video source-->
-        <video class="video-fluid" autoplay loop muted>
-          <source src="https://mdbootstrap.com/img/video/Lines.mp4" type="video/mp4" />
-        </video>
-        <div class="mask rgba-indigo-light"></div>
-      </div>
-
-      <!--Caption-->
-      <div class="carousel-caption">
-        <div class="animated fadeInDown">
-            <h1 class="font-weight-bold text-uppercase">Jesus lives ministry</h1>
-            <p class="font-weight-bold text-uppercase py-4">Affecting the world for Christ</p>
-        </div>
-      </div>
-      <!--Caption-->
+<!--Slides-->
+<div class="carousel-inner" role="listbox">
+  <!-- First slide -->
+  <div class="carousel-item active">
+    <!--Mask color-->
+    <div class="view">
+      <!--Video source-->
+      <video class="video-fluid" autoplay loop muted>
+        <source src="https://mdbootstrap.com/img/video/Lines.mp4" type="video/mp4" />
+      </video>
+      <div class="mask rgba-indigo-light"></div>
     </div>
-    <!-- /.First slide -->
-  </div>
-  <!--/.Slides-->
-</div>
-<!--Carousel Wrapper-->
 
-<br>
+    <!--Caption-->
+    <div class="carousel-caption">
+      <div class="animated fadeInDown">
+        <h1 class="font-weight-bold text-uppercase">Jesus lives ministry</h1>
+        <p class="font-weight-bold text-uppercase py-4">Affecting the world for Christ</p>
+      </div>
+    </div>
+    <!--Caption-->
+  </div>
+  <!-- /.First slide -->
+</div>
+<!--/.Slides-->
+<!--Carousel Wrapper-->
 
 <!-- about jlm -->
 <div class="container-fluid" style="#ede7f6 deep-purple lighten-5">
@@ -45,74 +43,79 @@
     anim id est laborum.</p>
   <br>
   <!-- pastor sections -->
-  <div class="container-fluid">
-    <h4 style="text-align:center">Jesus lives ministries pastors</h4>
+  <div class="container">
+    <h4 style="text-align:center">Jesus lives ministries leadership</h4>
     <br>
     {% if leaderships %}
     <div class="row">
       {% for leadership in leaderships %}
-      <div class="col-12 col-sm-6 col-lg-4">
+      <div class="col-12 col-sm-6 col-lg-6">
         <!-- Card -->
         <div class="card">
           <!-- Background color -->
           <div class="card-up indigo lighten-1">
-          <div class="view overlay zoom">
-          <div class="avatar mx-auto">
-             <img src="{{ leadership.image.url}}" class="card-img-top" style="height:250px;"alt="">
+            <div class="view overlay zoom">
+              <div class="avatar mx-auto">
+                <img src="{{ leadership.image.url}}" class="card-img-top" style="height:250px;" alt="">
+              </div>
+            </div>
           </div>
-          </div>
-          </div>
-          <div class="card-body">
+          <div class="card-body" style="background: -webkit-linear-gradient(45deg, rgba(213, 15, 61, 0.6), rgba(13, 17, 198, 0.69) 100%);">
             <!-- Name -->
-            <h4 class="card-title">
-              <h5 class="view overlay zoom">{{leadership.level}} {{leadership.full_name}}</h5>
-              <hr/>
-              <h5 class="view overlay zoom">{{leadership.branch}}</h5>
-              <hr/>
+
+              <h5 style="color:white" class="view overlay zoom">{{leadership.level}} {{leadership.full_name}}</h5>
+              <hr />
+              <h5 style="color:white" class="view overlay zoom">{{leadership.branch}}</h5>
+              <hr />
               <!-- Quotation -->
-              <p class="view overlay zoom"><i class="fas fa-quote-left"></i>{{leadership.message}}
+              <p style="color:white" class="view overlay zoom"><i class="fas fa-quote-left"></i>{{leadership.message}}
               </p>
           </div>
         </div>
+            <p style="padding-top:30px;">{{leadership.biograpgy}}</p>
       </div>
-      <p style="padding-top:30px;">{{leadership.biograpgy}}</p>
+
       {% endfor %}
     </div>
     {% endif %}
   </div>
   <br>
-  <div class="container-fluid">
-    <h4 style="text-align:center">Jesus lives ministries pastors</h4>
+  <div class="container" style="">
+    <div class="">
     <br>
-    {% if pastors %}
-    <div class="row">
-      {% for pastor in pastors %}
-      <div class="col-12 col-sm-6 col-lg-3">
-        <!-- Card -->
-        <div class="card">
-          <!-- Background color -->
-          <div class="card-up indigo lighten-1">
-          <div class="view overlay zoom">
-          <div class="avatar mx-auto">
-             <img src="{{ pastor.image.url}}" class="rounded-circle z-depth-2" style="height:280px; width:100%"alt=""100x100"">
-          </div>
-          </div>
-          </div>
-          <div class="card-body">
-            <!-- Name -->
-            <h4 class="card-title">
-              <h5 class="view overlay zoom">{{pastor.level}} {{pastor.full_name}}</h5>
-              <hr/>
-              <h5 class="view overlay zoom">{{pastor.branch}}</h5>
-              <hr/>
-              <!-- Quotation -->
-              <p class="view overlay zoom"><i class="fas fa-quote-left"></i>{{pastor.message}}
-              </p>
+    <h5 style="font-size:bold;">PRAYER REQUEST</h5>
+    <p>Leave a prayer request and the Bishop will pray with you.</p>
+    <br>
+    <!-- Name -->
+    <form method="post">
+      {% csrf_token %}
+      <div class="form-row">
+        <div class="form-group col-md-6 mb-0" style="tex-align:center;">
+          {{ form.email|as_crispy_field }}
+        </div>
+        <div class="form-group col-md-6 mb-0">
+          {{ form.subject|as_crispy_field }}
+        </div>
+        <div class="form-group col-md-6 mb-0">
+          <div class="col-md-6 col-lg-6 col-xl-6 mx-auto mb-md-0 mb-4">
+            <!-- Links -->
+            <h6 class="text-uppercase font-weight-bold">Reach us through</h6>
+            <br>
+            <p>
+              <i class="fas fa-envelope mr-3"></i> info@jlmchurch.com</p>
+            <p>
+              <i class="fas fa-phone mr-3"></i> +254 70 000 000</p>
+            <p>
+              <i class="fas fa-print mr-3"></i> +254 70 000 000</p>
+              <br>
+              <button type="submit" class="btn btn-primary">Submit</button>
           </div>
         </div>
+        <div class="form-group col-md-5 mb-0">
+          {{ form.message|as_crispy_field }}
+        </div>
       </div>
-      {% endfor %}
+    </form>
     </div>
-    {% endif %}
   </div>
-{% endblock %}
+  {% endblock %}

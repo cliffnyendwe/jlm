@@ -4,37 +4,23 @@
 {% block content %}
 {% load staticfiles %}
 {% include 'navbar.html'%}
-<!--Carousel Wrapper-->
-<div style="height:100%;"id="video-carousel-example2" class="carousel slide carousel-fade" data-ride="carousel">
-  <!--Slides-->
-  <div class="carousel-inner" role="listbox">
-    <!-- First slide -->
+<div id="carouselExampleFade" class="carousel slide carousel-fade" data-ride="carousel">
+  <div class="carousel-inner">
     <div class="carousel-item active">
-      <!--Mask color-->
-      <div class="view">
-        <!--Video source-->
-        <video class="video-fluid" autoplay loop muted>
-          <source src="https://mdbootstrap.com/img/video/Lines.mp4" type="video/mp4" />
-        </video>
-        <div class="mask rgba-indigo-light"></div>
-      </div>
-
-      <!--Caption-->
-      <div class="carousel-caption">
-        <div class="animated fadeInDown">
-            <h1 class="font-weight-bold text-uppercase">Jesus lives ministry</h1>
-            <p class="font-weight-bold text-uppercase py-4">Affecting the world for Christ</p>
-        </div>
-      </div>
-      <!--Caption-->
+      <img class="d-block w-100" src="https://mdbootstrap.com/img/Photos/Slides/img%20(15).jpg"
+        alt="First slide">
     </div>
-    <!-- /.First slide -->
+    <div class="carousel-item">
+      <img class="d-block w-100" src="https://mdbootstrap.com/img/Photos/Slides/img%20(16).jpg"
+        alt="Second slide">
+    </div>
+    <div class="carousel-item">
+      <img class="d-block w-100" src="https://mdbootstrap.com/img/Photos/Slides/img%20(17).jpg"
+        alt="Third slide">
+    </div>
   </div>
-  <!--/.Slides-->
 </div>
-<!--Carousel Wrapper-->
-
-  <br><br><br><br><br>
+  <br>
   <div class="container-fluid">
     <h4 style="text-align:center">Jesus lives ministries pastors</h4>
     <br>
@@ -48,19 +34,19 @@
           <div class="card-up indigo lighten-1">
           <div class="view overlay zoom">
           <div class="avatar mx-auto">
-             <img src="{{ pastor.image.url}}" class="rounded-circle z-depth-2" style="height:280px; width:100%"alt=""100x100"">
+             <img src="{{ pastor.image.url}}" class="card-img-top" style="height:280px; width:100%"alt=""100x100"">
           </div>
           </div>
           </div>
-          <div class="card-body">
+          <div class="card-body" style="background: -webkit-linear-gradient(45deg, rgba(213, 15, 61, 0.6), rgba(13, 17, 198, 0.69) 100%);">
             <!-- Name -->
             <h4 class="card-title">
-              <h5 class="view overlay zoom">{{pastor.level}} {{pastor.full_name}}</h5>
+              <h5 style="color:white"class="view overlay zoom">{{pastor.level}} {{pastor.full_name}}</h5>
               <hr/>
-              <h5 class="view overlay zoom">{{pastor.branch}}</h5>
+              <h5 style="color:white"class="view overlay zoom">{{pastor.branch}}</h5>
               <hr/>
               <!-- Quotation -->
-              <p class="view overlay zoom"><i class="fas fa-quote-left"></i>{{pastor.message}}
+              <p style="color:white"class="view overlay zoom"><i class="fas fa-quote-left"></i>{{pastor.message}}
               </p>
           </div>
         </div>

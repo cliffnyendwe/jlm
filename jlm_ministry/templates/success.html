@@ -1,9 +1,9 @@
-{% extends 'base.html' %}
+{% extends 'base.html'%}
 {% block content %}
 {% load staticfiles %}
-{% block title %}<title>boa base school</title>{% endblock title%}
-<link rel="stylesheet" href="{% static 'css/boa-base.css'%}">
-{% include 'navbar.html' %}
+{% block title%}<title>media</title>{% endblock title%}
+<link rel="stylesheet" href="{% static 'css/success.css'%}">
+{% include 'navbar.html'%}
 <div id="carouselExampleFade" class="carousel slide carousel-fade" data-ride="carousel">
   <div class="carousel-inner">
     <div class="carousel-item active">
@@ -22,6 +22,6 @@
 </div>
 <div class="container-fluid">
   <br>
-  <h4>Welcome to Boa Base School</h4>
-  </div>
+  <h5 class="alert alert-success" role="alert">Success! Your message has been sent successfully</h5>
+</div>
 {% endblock %}

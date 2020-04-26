@@ -1,9 +1,10 @@
 {% extends 'base.html'%}
 {% block content %}
 {% load staticfiles %}
-{% block title%}<title>board of trustee</title>{% endblock title%}
-<link rel="stylesheet" href="{% static 'css/trustee.css'%}">
+{% block title%}<title>testimonies</title>{% endblock title%}
+<link rel="stylesheet" href="{% static 'css/testimonies.css'%}">
 {% include 'navbar.html'%}
+
 <div id="carouselExampleFade" class="carousel slide carousel-fade" data-ride="carousel">
   <div class="carousel-inner">
     <div class="carousel-item active">
@@ -22,16 +23,16 @@
 </div>
 <div class="container-fluid">
   <br>
-  <h3>BOARD OF TRUSTEE DEPARTMENT</h3>
-  <h4>Duties and responsibilities</h4>
+  <h3>TESTIMONIES</h3>
+  <br>
   <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore
     magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
     consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
     Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-  <h4>Board of trustees Team</h4>
-  {% if trustees %}
+  <h4>Living voices International Team</h4>
+  {% if testimonies %}
   <div class="row">
-    {% for trustee in trustees%}
+    {% for testimony in testimonies%}
     <div class="col-12 col-sm-6 col-lg-2">
 
       <div class="card">
@@ -39,17 +40,17 @@
         <div class="card-up indigo lighten-1">
           <div class="view overlay zoom">
             <div class="avatar mx-auto">
-              <img src="{{ trustee.image.url}}" class="card-img-top" style="height:280px; width:100%" alt=""
+              <img src="{{ testimony.image.url}}" class="card-img-top" style="height:280px; width:100%" alt=""
                 100x100"">
             </div>
           </div>
         </div>
-        <div class="card-body">
+        <div class="card-body" style="background: -webkit-linear-gradient(45deg, rgba(213, 15, 61, 0.6), rgba(13, 17, 198, 0.69) 100%);">
           <!-- Name -->
           <h4 class="card-title">
-            <h6 class="view overlay zoom">{{trustee.level}} {{trustee.full_name}}</h6>
+            <h6 style="color:white"class="view overlay zoom">{{testimony.full_name}}</h6>
             <hr />
-            <h6 class="view overlay zoom">{{trustee.branch}}</h6>
+            <h6 style="color:white"class="view overlay zoom">{{testimony.branch}}</h6>
         </div>
       </div>
     </div>
